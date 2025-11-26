@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | Sunset Boat Party</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunset-orange: #FF7E5F;
+            --sunset-pink: #FEB47B;
+            --sunset-purple: #7B68EE;
+            --sunset-yellow: #FFDB58;
+            --sunset-deep: #4A3B58;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: var(--sunset-deep);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--sunset-orange), var(--sunset-pink), var(--sunset-purple));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--sunset-deep);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--sunset-orange), var(--sunset-pink));
+        }
+        
+        .about-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .about-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .album-section {
+            background: linear-gradient(135deg, #fff6f3, #f9f3ff);
+        }
+        
+        .album-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .album-cover {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--sunset-purple), var(--sunset-orange));
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, var(--sunset-orange), var(--sunset-purple));
+        }
+        
+        .event-info {
+            background-color: var(--sunset-deep);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--sunset-orange);
+        }
+        
+        .team-section {
+            background: linear-gradient(135deg, #f9f3ff, #fff6f3);
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--sunset-deep);
+        }
+        
+        .team-role {
+            color: var(--sunset-orange);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-link:hover {
+            background: var(--sunset-orange);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--sunset-deep);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .back-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sunset-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            background: var(--sunset-purple);
+            color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--sunset-orange);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid var(--sunset-orange);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, var(--sunset-purple), var(--sunset-orange));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: -30px;
+            left: -40px;
+        }
+        
+        .quote::after {
+            bottom: -60px;
+            right: -40px;
+        }
+        
+        .quote-author {
+            margin-top: 30px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SUNSET BOAT PARTY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="quienes-somos.html">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#artistas">Artistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#tickets">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#musica">Música</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">QUIÉNES SOMOS</h1>
+            <p class="hero-subtitle">Conoce la historia detrás del Sunset Boat Party y el talento de Isaías Mena</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">BIOGRAFÍA DE ISAÍAS MENA</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="ISA_NEBU.png" alt="Isaías Mena" class="about-img">
+                        <div class="text-center mt-4">
+                            <h4>Isaías Mena Ruiz</h4>
+                            <p class="text-muted">Violinista y Productor Musical</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-spotify"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-soundcloud"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Isaías Mena Ruiz, violinista y productor musical, nació el 31 de diciembre en Cartagena, Colombia. Desde su llegada al mundo, estuvo rodeado por el arte y la música, elementos que marcaron su vida.</p>
+                        <p>Desde temprana edad, Isaías mostró su talento musical, iniciándose en la batería y otros instrumentos de percusión en iglesias cristianas. Sin embargo, fue su verdadera pasión por el violín lo que lo llevó a dedicarse completamente a su estudio y perfeccionamiento.</p>
+                        <p>A lo largo de su carrera, formó parte de la Orquesta Filarmónica de Cartagena y Batuta, experiencias que enriquecieron su formación musical tanto en lo académico como en lo artístico. Estas vivencias lo impulsaron a fundar varios proyectos musicales y culturales que han dejado una huella importante en la escena artística local.</p>
+                        <p>Pero fue su fascinación por el cosmos la que inspiró su evolución hacia la música electrónica. En su primer álbum como productor, titulado Nebula, Isaías da rienda suelta a su amor por las estrellas y el infinito, plasmando su admiración por el universo en cada nota. El álbum nace de su deseo de conectar con esa sensación especial que todos sentimos al mirar al cielo, preguntándonos si alguna vez hemos sentido ser parte de algo infinitamente grande.</p>
+                        <p>A través de este trabajo, Isaías fusiona su formación clásica con la electrónica experimental, creando una obra que explora nuevas fronteras sonoras mientras rinde homenaje a la grandeza del universo.</p>
+                        <p>Con su creatividad, talento innato y pasión por la innovación, Isaías Mena Ruiz continúa desafiando los límites del arte y la música, consolidándose como un referente de vanguardia en la escena musical electrónica. Su constante búsqueda de nuevas formas de expresión lo convierte en un artista imprescindible en el panorama cultural actual.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote">
+                "¿Alguna vez has mirado al cielo y te has sentido parte de algo infinito y especial?"
+                <div class="quote-author">- Nebula, Isaías Mena</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">TRAYECTORIA MUSICAL</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4>A los 18 años</h4>
+                        <p>Se integra a la Orquesta Filarmónica de Cartagena y a Batuta, consolidando su formación en violín.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4>2013 — 100 de Cilantro</h4>
+                        <p>Fundó <em>100 de Cilantro</em>, participó en 'Colombia Tiene Talento' y tocó en importantes escenarios nacionales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4>2015 — The Faces</h4>
+                        <p>Fundó <em>The Faces</em>, dúo pionero del live electronic que ha girado por Latinoamérica y compartido escenario con artistas de primer nivel.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4>2025 — Nebula y expansión internacional</h4>
+                        <p>Lanzó su primer álbum como solista y productor, <strong>Nebula</strong>, y prepara el primer tour internacional de The Faces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Album Section -->
+    <section class="section album-section">
+        <div class="container">
+            <h2 class="section-title">NEBULA - PRIMER ÁLBUM</h2>
+            <div class="album-container">
+                <img src="nebula.jpg" alt="Nebula Album Cover" class="album-cover">
+                <h3>Nebula</h3>
+                <p class="mb-4">Una fusión única de música clásica y electrónica que explora nuestra conexión con el cosmos</p>
+                <a href="https://share.amuse.io/album/isafaces-nebula" target="_blank" class="btn btn-primary btn-lg">Escucha mi música</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Info Section -->
+    <section class="event-info">
+        <div class="container">
+            <h2 class="text-center mb-5">EL EVENTO</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <i class="fas fa-music info-icon"></i>
+                        <h4>Música en Vivo</h4>
+                        <p>Disfruta de sets en vivo de Isaías Mena y artistas invitados en un ambiente único.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <i class="fas fa-ship info-icon"></i>
+                        <h4>Catamarán Premium</h4>
+                        <p>Vive una experiencia única navegando por las aguas de Cartagena al atardecer.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card">
+                        <i class="fas fa-heart info-icon"></i>
+                        <h4>Causa Social</h4>
+                        <p>El 50% de lo recaudado se destinará a comprar juguetes para niños en diciembre.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2025 Sunset Boat Party - Cartagena. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-btn">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top button
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backBtn = document.querySelector('.back-btn');
+            if (window.scrollY > 300) {
+                backBtn.style.display = 'flex';
+            } else {
+                backBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
